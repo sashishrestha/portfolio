@@ -5,7 +5,7 @@ import logo from "/images/logo.svg";
 import { useThemeContext } from "../App";
 
 const links = [
-  { label: "hero", href: "#hero" },
+  { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Work Process", href: "#work-process" },
