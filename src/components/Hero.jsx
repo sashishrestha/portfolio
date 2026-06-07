@@ -52,7 +52,7 @@ function CountUp({ value, delay = 0 }) {
 
 export default function Hero() {
   return (
-    <section id="hero" aria-label="Introduction" className="relative h-[calc(100vh-64px)]  group/hero flex flex-col justify-center px-6 lg:px-10 pt-24 pb-16 max-w-7xl mx-auto overflow-hidden mt-16">
+    <section id="hero" aria-label="Introduction" className="relative min-h-[calc(100vh-64px)]  group/hero flex flex-col justify-center px-6 lg:px-10 pt-24 pb-16 max-w-7xl mx-auto overflow-hidden mt-16">
       {/* Background grid */}
       
 

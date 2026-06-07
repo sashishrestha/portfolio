@@ -54,9 +54,8 @@ export default function App() {
       />
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Navbar />
-        <div className="">
+        <div>
           <main id="main-content">
-            
             <Hero />
             <About />
             <Experience />
