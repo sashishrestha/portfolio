@@ -1,0 +1,319 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg: #0a0a0a;
+    --color-surface: #111111;
+    --color-border: #1e1e1e;
+    --color-accent: #e8d5b0;
+    --color-accent2: #c9a96e;
+    --color-text: #f0ece4;
+    --color-muted: #888888;
+           --color-avatar-bg: #e8d5b0 ;
+    --color-avatar: #0a0a0a ;
+/*Loader*/
+     --loader-bg: #0e0e0e;
+    --loader-fg: #f0ede8;
+    --loader-fg-dim: rgba(240,237,232,0.78);
+    --loader-track: rgba(240,237,232,0.12);
+    --loader-stroke: rgba(240,237,232,0.55);
+    --loader-label-color: rgba(240,237,232,0.38);
+  }
+
+  html.light {
+    --color-bg: #f5f0e8;
+    --color-surface: #ede8dd;
+    --color-border: #d4c9b0;
+    --color-accent: #8b6914;
+    --color-accent2: #a07820;
+    --color-text: #1a1610;
+    --color-muted: #6b6050;
+     --color-avatar-bg: #f5f0e8 ;
+    --color-avatar: #8b6914 ;
+  }
+
+  @media (prefers-color-scheme: light) {
+    html:not(.dark):not(.light) {
+      --color-bg: #f5f0e8;
+      --color-surface: #ede8dd;
+      --color-border: #d4c9b0;
+      --color-accent: #8b6914;
+      --color-accent2: #a07820;
+      --color-text: #1a1610;
+      --color-muted: #6b6050;
+
+    }
+  }
+
+   @media (prefers-color-scheme: dark) {
+    .grayscale-dark {
+     filter: grayscale(1), contrast(1);
+    
+    }
+    .dark-white {
+      filter: contrast(1);
+    }
+  }
+  .dark .grayscale-dark {
+     filter: grayscale(1) contrast(0.65);
+    }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    -webkit-font-smoothing: antialiased;
+    &.modal-open{
+      overflow: hidden;
+    }
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Archivo", sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: var(--color-accent2);
+    color: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 2px;
+  }
+}
+
+.snap-slide {
+  scroll-snap-align: start;
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Archivo", sans-serif;
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .text-accent2 {
+    color: var(--color-accent2);
+  }
+
+  .text-muted {
+    color: var(--color-muted);
+  }
+
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+
+  .border-subtle {
+    border-color: var(--color-border);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+
+.profile-img-container {
+  position: relative;
+}
+
+.profile-img-container::before,
+.profile-img-container::after {
+  content: "";
+  position: absolute;
+ left: 50%;
+ top:100%;
+ transform:translateX(-50%) ;
+  display: block;
+  opacity: 0;
+  border-radius: 32px 32px 0 0;
+  border-radius: 100%;
+    width: 100%;
+  height: 100%;
+    transition:  0.3s ease-in-out;
+}
+
+.profile-img-container::before {
+  background: var(--color-accent);
+  z-index: 2;
+}
+
+.profile-img-container::after {
+  background: var(--color-accent2);
+  z-index: 1;
+}
+
+.profile-img-container:hover::before{
+
+  opacity: 1;
+  top: 60%;
+}
+
+.profile-img-container:hover::after {opacity: 1;
+  top: 50%;}
+
+.profile-img-container img {
+  position: relative;
+  z-index: 3;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.5rem 1.25rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Keyboard focus ring — only for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--color-accent2);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+/*LOADER*/
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+ 
+  /* ── Logo ── */
+  .logo-svg { overflow: visible; }
+ 
+  /* Wipe clip — each path slides in from its outer edge */
+  .p1-wrap {
+    animation: wipeLeft 2s cubic-bezier(0.76, 0, 0.24, 1) infinite alternate;
+  }
+  .p2-wrap {
+    animation: wipeRight 2s cubic-bezier(0.76, 0, 0.24, 1) 0.18s infinite alternate;
+  }
+ 
+  @keyframes wipeLeft {
+    0%       { clip-path: inset(0 100% 0 0); }
+    55%, 100% { clip-path: inset(0 0% 0 0); }
+  }
+  @keyframes wipeRight {
+    0%       { clip-path: inset(0 0 0 100%); }
+    55%, 100% { clip-path: inset(0 0 0 0%); }
+  }
+ 
+  .stroke-p1 {
+    fill: none;
+    stroke: var(--loader-stroke);
+    stroke-width: 1px;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: drawStroke 2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s infinite alternate;
+  }
+  .stroke-p2 {
+    fill: none;
+    stroke: var(--loader-stroke);
+    stroke-width: 1px;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: drawStroke 2s cubic-bezier(0.4, 0, 0.2, 1) 0.55s infinite alternate;
+  }
+ 
+  @keyframes drawStroke {
+    0%        { stroke-dashoffset: 220; opacity: 1; }
+    55%, 75%  { stroke-dashoffset: 0;   opacity: 0.55; }
+    100%      { stroke-dashoffset: 0;   opacity: 0; }
+  }
+ 
+  .fill-p1 { fill: var(--loader-fg-dim); }
+  .fill-p2 { fill: var(--loader-fg); }
+ 
+  /* ── Progress bar ── */
+  .bar-track {
+    width: 56px;
+    height: 1.5px;
+    background: var(--loader-track);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--loader-fg);
+    border-radius: 2px;
+    animation: barSweep 2.18s cubic-bezier(0.76, 0, 0.24, 1) infinite alternate;
+  }
+  @keyframes barSweep {
+    0%        { width: 0%;   opacity: 1; }
+    65%       { width: 100%; opacity: 1; }
+    100%      { width: 100%; opacity: 0.15; }
+  }
+ 
+  /* ── Label ── */
+  .loader-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--loader-label-color);
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeLabel 0.6s ease 0.8s forwards;
+  }
+  @keyframes fadeLabel {
+    to { opacity: 1; }
+  }
+ 
+
+  .loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--loader-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  .loader-overlay.done {
+    opacity: 0;
+    pointer-events: none;
+  }
