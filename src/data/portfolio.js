@@ -114,7 +114,7 @@ export const caseStudies = [
     id: 1,
     title: "Identity Command Center",
     subtitle:
-      "Enterprise application that provide real time security insights & integration.",
+      "Designing a complex B2B security dashboard to reduce administrative setup time by 40%.",
     category: "Product Design",
     challenge:
       "ICC had grown screen by screen — each page was functional but built in isolation. There was no unified visual language, no shared component library, and no token system connecting design to code. The product worked, but it didn't feel like a cohesive product. My mandate was to establish the design foundation and then systematically elevate each critical screen on top of it",

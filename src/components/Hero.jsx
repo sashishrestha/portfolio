@@ -61,7 +61,7 @@ export default function Hero() {
 
       <div className="relative z-10 grid md:grid-cols-2">
          <div className="flex items-end sn:justify-center mb-6 sm:mb-0">
-          <span className="profile-img-container mt-8 md:mt-0 cursor-pointer overflow-hidden " onClick={() =>
+          <div className="profile-img-container mt-8 md:mt-0 cursor-pointer overflow-hidden " onClick={() =>
           document
             .querySelector("#about")
             ?.scrollIntoView({ behavior: "smooth" })
@@ -71,14 +71,16 @@ export default function Hero() {
         transition={{ duration: 0.6 }} className="rounded-t-4xl z-10 relative pt-4 h-full">
           <Avatar className={"w-44 md:w-96"} />
           </motion.div>
-          </span>
+          </div>
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center py-12">
           {/* Headline */}
           <motion.h1
             {...fadeUp(0.2)}
             className="font-display text-5xl sm:text-7xl lg:text-8xl leading-[1.05] mb-6"
           >
+            <div className="flex flex-col items-start gap-2">
+              <span className="text-(--color-accent2) text-sm tracking-wide uppercase font-medium px-4 py-2 bg-(--color-accent2)/15 rounded-full">Senior UI/UX Designer</span>  
             <TextPressure
               text={"Sashi\nShrestha"}
               flex
@@ -92,6 +94,9 @@ export default function Hero() {
               minFontSize={36}
               className="gradient-text font-extralight"
             />
+            
+                        </div>
+
           </motion.h1>
 
           {/* Bio */}

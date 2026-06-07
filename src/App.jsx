@@ -58,9 +58,9 @@ export default function App() {
           <main id="main-content">
             <Hero />
             <About />
+            <CaseStudies />
             <Experience />
             <WorkProcess />
-            <CaseStudies />
             <Contact />
           </main>
           <Footer />

@@ -7,9 +7,9 @@ import { useThemeContext } from "../App";
 const links = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
+  { label: "Case Studies", href: "#case-studies" },
   { label: "Experience", href: "#experience" },
   { label: "Work Process", href: "#work-process" },
-  { label: "Case Studies", href: "#case-studies" },
   { label: "Contact", href: "#contact" },
 ];
 
