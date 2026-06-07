@@ -6,20 +6,21 @@ import TextPressure from "./TextPressure";
 
 function ExperienceItem({ item, index }) {
   return (
-    <div className="flex flex-col items-center md:items-start md:flex-row  md:gap-16">
-      <motion.div
+    <div className="flex flex-col items-center md:items-start md:flex-row md:gap-16">
+      <motion.button
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: index * 0.08 }}
         className="flex lg:ml-6"
+        aria-label={`${item.company} on role of ${item.role} from ${item.period}`}
       >
         <img
           src={item.logo}
           alt={item.company}
           className={`w-48 ${item.company.includes("Nagarjun") ? "h-22" : "h-16"} object-contain grayscale-dark md:mt-6 mt-4`}
         />
-      </motion.div>
+      </motion.button>
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
