@@ -43,11 +43,14 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+     document.body.style.overflow = open ? "hidden" : "auto";
     if (!open) return;
     const handleKeyDown = (e) => { if (e.key === "Escape") setOpen(false); };
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => {document.removeEventListener("keydown", handleKeyDown); document.body.style.overflow = "auto";}
   }, [open]);
+
+
 
   const handleNav = (href) => {
     setOpen(false);
@@ -124,7 +127,9 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-(--color-bg) flex flex-col pt-20 px-8"
           >
             <ul className="flex flex-col gap-6 mt-8">
+              
               {links.map((l, i) => (
+                l.label != "Home" &&
                 <motion.li
                   key={l.href}
                   initial={{ opacity: 0, x: -20 }}
@@ -141,9 +146,12 @@ export default function Navbar() {
               ))}
             </ul>
             <div className="mt-auto mb-12">
+              <p className="text-center text-lg font-medium text-(--color-muted) mb-2">
+                Get in touch
+              </p>
               <a
                 href="mailto:loginu.shrestha@gmail.com"
-                className="inline-flex text-sm font-medium text-(--color-bg) bg-(--color-accent) px-6 py-3 rounded-full"
+                className="flex text-sm justify-center font-medium text-(--color-bg) bg-(--color-accent) px-6 py-3 rounded-full"
               >
                 loginu.shrestha@gmail.com
               </a>
