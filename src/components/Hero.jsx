@@ -73,7 +73,7 @@ export default function Hero() {
           </motion.div>
           </div>
         </div>
-        <div className="flex flex-col justify-center py-12">
+        <div className="flex flex-col justify-center pb-12">
           {/* Headline */}
           <motion.h1
             {...fadeUp(0.2)}
