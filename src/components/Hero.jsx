@@ -57,9 +57,10 @@ export default function Hero() {
       
 
       {/* Glow */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-(--color-accent2)/5 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 grid md:grid-cols-2">
+      <div className="absolute top-1/4 left-0 w-96 h-96 rounded-full bg-(--color-accent2)/10 blur-3xl pointer-events-none" />
+
          <div className="flex items-end sn:justify-center mb-6 sm:mb-0">
           <div className="profile-img-container mt-8 md:mt-0 cursor-pointer overflow-hidden " onClick={() =>
           document
