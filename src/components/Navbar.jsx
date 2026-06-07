@@ -77,7 +77,7 @@ export default function Navbar() {
           {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-8">
             {links.map((l) => (
-              l.label != "hero" &&
+              l.label != "Home" &&
              ( <li key={l.href}>
                 <button
                   onClick={() => handleNav(l.href)}
