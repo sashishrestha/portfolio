@@ -13,6 +13,29 @@ export const info = {
   },
 };
 
+export const certifications = [
+  {
+    name: "Google UX Design",
+    issuer: "Google",
+    credlyUrl: "https://coursera.org/share/7fd27b6ea53ac187041f52ee37b7febf",
+  },
+  {
+    name: "Auth0 Consumer App Champion",
+    issuer: "Auth0",
+    credlyUrl: "https://www.credly.com/users/sashi-shrestha/badges#credly",
+  },
+  {
+    name: "Okta Certified Professional",
+    issuer: "Okta",
+    credlyUrl: "https://www.credly.com/users/sashi-shrestha/badges#credly",
+  },
+  {
+    name: "Okta Certified Developer",
+    issuer: "Okta",
+    credlyUrl: "https://www.credly.com/users/sashi-shrestha/badges#credly",
+  },
+];
+
 export const stats = [
   { value: "12+", label: "Years Experience" },
   { value: "50+", label: "Projects Delivered" },
@@ -99,15 +122,10 @@ export const experience = [
     duration: "~4 years",
     type: "Part-time",
     logo: "/images/NOP.svg",
-    description:
-      "Designed printing/digital material.",
+    description: "Designed printing/digital material.",
     highlights: [],
   },
 ];
-
-
-
-
 
 export const caseStudies = [
   {
@@ -135,20 +153,20 @@ export const caseStudies = [
   },
   {
     id: 2,
-   title: "Estimator Platform",
-subtitle: "One design system powering four estimation contexts",
-category: "Enterprise UX / Design System",
-challenge:
-  "Four distinct business domains — service, product, package, and SMS estimation — needed a unified platform that felt consistent without forcing users to relearn the UI every time they switched contexts.",
-process: [
-  "Mapped all four estimation workflows to identify shared interaction patterns",
-  "Built a single token-based design system (33 tokens, 17 components) used across all contexts",
-  "Designed a 6-step progressive wizard for complex service estimation with smart branching for T&M vs Fixed Fee contracts",
-  "Implemented a context-switching model with shared nav shell — URL, nav, and branding swap instantly without cognitive overhead",
-],
-outcome:
-  "169 pages across 50 routes delivered from one codebase and one design system. Users who learn one context navigate all four without relearning any UI patterns — reducing adoption friction across teams.",
-color: "#278f2e",
+    title: "Estimator Platform",
+    subtitle: "One design system powering four estimation contexts",
+    category: "Enterprise UX / Design System",
+    challenge:
+      "Four distinct business domains — service, product, package, and SMS estimation — needed a unified platform that felt consistent without forcing users to relearn the UI every time they switched contexts.",
+    process: [
+      "Mapped all four estimation workflows to identify shared interaction patterns",
+      "Built a single token-based design system (33 tokens, 17 components) used across all contexts",
+      "Designed a 6-step progressive wizard for complex service estimation with smart branching for T&M vs Fixed Fee contracts",
+      "Implemented a context-switching model with shared nav shell — URL, nav, and branding swap instantly without cognitive overhead",
+    ],
+    outcome:
+      "169 pages across 50 routes delivered from one codebase and one design system. Users who learn one context navigate all four without relearning any UI patterns — reducing adoption friction across teams.",
+    color: "#278f2e",
     accent: "#818cf8",
     img: "/images/estimator-login.jpeg",
     logo: "/images/estimator-logo.svg",

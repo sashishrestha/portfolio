@@ -43,14 +43,17 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-     document.body.style.overflow = open ? "hidden" : "auto";
+    document.body.style.overflow = open ? "hidden" : "auto";
     if (!open) return;
-    const handleKeyDown = (e) => { if (e.key === "Escape") setOpen(false); };
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
     document.addEventListener("keydown", handleKeyDown);
-    return () => {document.removeEventListener("keydown", handleKeyDown); document.body.style.overflow = "auto";}
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto";
+    };
   }, [open]);
-
-
 
   const handleNav = (href) => {
     setOpen(false);
@@ -68,37 +71,55 @@ export default function Navbar() {
           scrolled ? "bg-(--color-bg)/90 backdrop-blur-xl " : "bg-transparent"
         }`}
       >
-        <nav aria-label="Main navigation" className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+        <nav
+          aria-label="Main navigation"
+          className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between"
+        >
           <button
             onClick={() => handleNav("#hero")}
             aria-label="Go to top"
             className="cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <img src={logo} alt="Sashi Identity" className="h-8 w-8 grayscale-dark" />
+            <img
+              src={logo}
+              alt="Sashi Identity"
+              className="h-8 w-8 grayscale-dark"
+            />
           </button>
 
           {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-8">
-            {links.map((l) => (
-              l.label != "Home" &&
-             ( <li key={l.href}>
-                <button
-                  onClick={() => handleNav(l.href)}
-                  aria-current={active === l.href ? "page" : undefined}
-                  className={`text-sm font-medium transition-colors duration-200 relative group cursor-pointer ${
-                    active === l.href
-                      ? "text-(--color-accent)"
-                      : "text-(--color-muted) hover:text-(--color-accent)"
-                  }`}
-                >
-                  {l.label}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-(--color-accent2) transition-all duration-300 group-hover:w-full" />
-                </button>
-              </li>)
-            ))}
+            {links.map(
+              (l) =>
+                l.label != "Home" && (
+                  <li key={l.href}>
+                    <button
+                      onClick={() => handleNav(l.href)}
+                      aria-current={active === l.href ? "page" : undefined}
+                      className={`text-sm font-medium transition-colors duration-200 relative group cursor-pointer ${
+                        active === l.href
+                          ? "text-(--color-accent)"
+                          : "text-(--color-muted) hover:text-(--color-accent)"
+                      }`}
+                    >
+                      {l.label}
+                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-(--color-accent2) transition-all duration-300 group-hover:w-full" />
+                    </button>
+                  </li>
+                ),
+            )}
           </ul>
 
           <div className="flex items-center gap-2">
+            <a
+              href="/images/sashishrestha_Resume.pdf"
+              target="_blank"
+              title="View Resume"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center  text-sm gap-3 text-(--color-muted) hover:text-white hover:bg-(--color-accent2) rounded-2xl px-4 py-2 font-medium transition-all duration-200"
+            >
+              Resume
+            </a>
             <ThemeToggle />
             <button
               onClick={() => setOpen(!open)}
@@ -127,27 +148,28 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-(--color-bg) flex flex-col pt-20 px-8"
           >
             <ul className="flex flex-col gap-6 mt-8">
-              
-              {links.map((l, i) => (
-                l.label != "Home" &&
-                <motion.li
-                  key={l.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.07 }}
-                >
-                  <button
-                    onClick={() => handleNav(l.href)}
-                    className="text-3xl font-display font-medium text-(--color-accent) hover:text-(--color-accent2) transition-colors"
-                  >
-                    {l.label}
-                  </button>
-                </motion.li>
-              ))}
+              {links.map(
+                (l, i) =>
+                  l.label != "Home" && (
+                    <motion.li
+                      key={l.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.07 }}
+                    >
+                      <button
+                        onClick={() => handleNav(l.href)}
+                        className="text-3xl font-display font-medium text-(--color-accent) hover:text-(--color-accent2) transition-colors"
+                      >
+                        {l.label}
+                      </button>
+                    </motion.li>
+                  ),
+              )}
             </ul>
             <div className="mt-auto mb-12">
               <p className="text-center text-lg font-medium text-(--color-muted) mb-2">
-                Get in touch
+                Email
               </p>
               <a
                 href="mailto:loginu.shrestha@gmail.com"
