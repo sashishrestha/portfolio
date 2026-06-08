@@ -149,7 +149,7 @@ export const caseStudies = [
     accent: "#4ade80",
     img: "/images/icc.png",
     logo: "/images/ICC-logo.svg",
-    link: "/images/Identity-command-center.pdf",
+    link: "/files/Identity-command-center.pdf",
   },
   {
     id: 2,
@@ -170,6 +170,6 @@ export const caseStudies = [
     accent: "#818cf8",
     img: "/images/estimator-login.jpeg",
     logo: "/images/estimator-logo.svg",
-    link: "/images/Service-Estimator.pdf",
+    link: "/files/Service-Estimator.pdf",
   },
 ];

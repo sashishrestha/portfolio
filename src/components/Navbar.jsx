@@ -112,7 +112,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2">
             <a
-              href="/images/sashishrestha_Resume.pdf"
+              href="/files/sashishrestha_Resume.pdf"
               target="_blank"
               title="View Resume"
               rel="noopener noreferrer"
